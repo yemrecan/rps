@@ -21,32 +21,18 @@ function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock" && computerSelection === "rock") {
+    // berabere oldugu durumlarda beraber de
+    if(playerSelection === computerSelection){
         return "berabere"
     }
-    else if(playerSelection === "paper" && computerSelection === "paper"){
-        return "berabere"
-    }
-    else if(playerSelection === "scissors" && computerSelection === "scissors"){
-        return "berabere"
-    }
-    else if(playerSelection === "rock" && computerSelection === "paper"){
+    // oyuncunun kazandigi durumlarda kazandiniz de
+    if((playerSelection === "rock" && computerSelection === "scissors") || 
+    (playerSelection === "paper" && computerSelection === "rock") || 
+    (playerSelection === "scissors" && computerSelection === "paper")
+    ){
+        return "kazandin"
+    } else{
         return "pc kazandi"
-    }
-    else if(playerSelection === "rock" && computerSelection === "scissors"){
-        return "sen kazandin broo"
-    }
-    else if(playerSelection === "paper" && computerSelection === "rock"){
-        return "kazandin broo"
-    }
-    else if(playerSelection === "paper" && computerSelection === "scissors"){
-        return "pc kazandi"
-    }
-    else if(playerSelection === "scissors" && computerSelection === "rock"){
-        return "pc kazandi"
-    }
-    else if(playerSelection === "scissors" && computerSelection === "paper"){
-        return "kazandin broo"
     }
 
 }
