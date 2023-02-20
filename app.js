@@ -19,3 +19,34 @@ function getComputerChoice() {
     return secenekler[rastgeleSayi]
 }
 
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "rock") {
+        return "berabere"
+    }
+    else if(playerSelection === "paper" && computerSelection === "paper"){
+        return "berabere"
+    }
+    else if(playerSelection === "scissors" && computerSelection === "scissors"){
+        return "berabere"
+    }
+    else if(playerSelection === "rock" && computerSelection === "paper"){
+        return "pc kazandi"
+    }
+    else if(playerSelection === "rock" && computerSelection === "scissors"){
+        return "sen kazandin broo"
+    }
+    else if(playerSelection === "paper" && computerSelection === "rock"){
+        return "kazandin broo"
+    }
+    else if(playerSelection === "paper" && computerSelection === "scissors"){
+        return "pc kazandi"
+    }
+    else if(playerSelection === "scissors" && computerSelection === "rock"){
+        return "pc kazandi"
+    }
+    else if(playerSelection === "scissors" && computerSelection === "paper"){
+        return "kazandin broo"
+    }
+
+}
