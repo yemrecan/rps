@@ -11,6 +11,9 @@ resetButton.style.display = "none";
 let playerScore = 0;
 let computerScore = 0;
 
+let oyuncuGuncelSecenek = ""
+let pcGuncelSecenek = ""
+
 
 resetButton.addEventListener('click', ()=> {
     console.log("resetlemeye basladim..");
@@ -38,17 +41,18 @@ resetButton.addEventListener('click', ()=> {
 }) 
 
 function tiklamayiHallet (event) {
+    console.log(pcGuncelSecenek);
     const kullaniciSecenek = event.target.textContent.toLowerCase()
 
     // bir round oyna
     const sonuc = playRound(kullaniciSecenek,getComputerChoice())
     if(sonuc === 'berabere'){
-        durumSpan.innerText = "Berabere!"
+        durumSpan.innerText = `Beraber | PC: ${pcGuncelSecenek} SEN:${oyuncuGuncelSecenek}`
     } 
     else if(sonuc === '✅ kazandin'){
-        durumSpan.innerText = "Kazandın!"
+        durumSpan.innerText = `Kazandin! | PC: ${pcGuncelSecenek} SEN:${oyuncuGuncelSecenek}`
     }else{
-        durumSpan.innerText = "Kaybettin!"
+        durumSpan.innerText = `Kaybettin! | PC: ${pcGuncelSecenek} SEN:${oyuncuGuncelSecenek}`
 
     }
     // skor metinlerini guncelle
@@ -102,12 +106,14 @@ function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
+    // global degiskenleri guncelle 
+     oyuncuGuncelSecenek = playerSelection
+     pcGuncelSecenek = computerSelection
     if (!playerSelection) {
         return 'HATALI SECIM'
     }
     // girileni otomatik olarak kucult
     playerSelection = playerSelection.toLowerCase()
-
 
     // girilen deger rock paper scissors disinda bir sey ise hata ver
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
