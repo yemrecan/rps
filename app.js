@@ -30,6 +30,10 @@ resetButton.addEventListener('click', ()=> {
        // durumu sifirla
        durumSpan.innerText = ""
 
+       // kendini gizle
+       resetButton.style.display = "none";
+
+
 
 }) 
 
@@ -63,6 +67,7 @@ function tiklamayiHallet (event) {
        // reset butonunu goster
        resetButton.style.display = "";
     }
+
    
 }
 rockButton.addEventListener('click', tiklamayiHallet)
