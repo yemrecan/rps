@@ -24,6 +24,10 @@ function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
+   if(!playerSelection){
+    return 'HATALI SECIM'
+   }
+    console.log(playerSelection);
     // girileni otomatik olarak kucult
     playerSelection = playerSelection.toLowerCase()
 
