@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 console.log("merhaba");
 // "rock" | "paper" | "scissors" stringlerinden birini rastgele döner
 function getComputerChoice() {
@@ -24,6 +27,7 @@ function playRound(playerSelection, computerSelection) {
     // girileni otomatik olarak kucult
     playerSelection = playerSelection.toLowerCase()
 
+
     // girilen deger rock paper scissors disinda bir sey ise hata ver
     if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors" ){
         return "HATALI SECIM"
@@ -38,10 +42,36 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") || 
     (playerSelection === "scissors" && computerSelection === "paper")
     ){
+        playerScore++
         return "✅ kazandin"
     } else{
+        computerScore++
         return "💻 pc kazandi"
     }
 
 }
+
+
+// game adında bir fonksiyon olustur bu fonksiyon calistirildiginda 5 tur round oynansin... 
+function game(){
+    for(let i=0;i < 5;i++)
+    {
+        console.log(playRound(prompt("sec: 'rock|paper|scissors'"),getComputerChoice()));
+    }
+    // console.log(`bilgisayar= ${computerScore} sen= ${playerScore}`);
+    // kazanani ilan et 
+    if(playerScore > computerScore){
+        console.log(`sen kazandin | senin skorun = ${playerScore} | pc skoru = ${computerScore}`);
+    }
+    else if(playerScore === computerScore){
+        console.log(`berabere | senin skorun = ${playerScore} | pc skoru = ${computerScore}`);
+    }
+    else{
+        console.log(`pc kazandi | pc skoru = ${computerScore} | senin skorun = ${playerScore}`);
+    }
+
+}
+
+game()
+
 
