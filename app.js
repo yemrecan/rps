@@ -5,8 +5,8 @@ const rockButton = document.querySelector('#rock')
 const paperButton = document.querySelector('#paper')
 const scissorsButton = document.querySelector('#scissors')
 const resetButton = document.querySelector('#reset')
-
-
+// basta reset butonunu gizle
+resetButton.style.display = "none";
 
 let playerScore = 0;
 let computerScore = 0;
@@ -51,6 +51,8 @@ function tiklamayiHallet (event) {
     playerScoreSpan.innerText = playerScore
     computerScoreSpan.innerText = computerScore
 
+
+    // oyun bitisi
     if(playerScore === 5 || computerScore === 5) {
        const sonucMetni = `OYUN BITTI ve KAZANAN = ${playerScore === 5 ? 'SENSIN' : 'BILGISAYAR'}`
        durumSpan.innerText = sonucMetni
@@ -58,7 +60,10 @@ function tiklamayiHallet (event) {
        rockButton.disabled = true
        scissorsButton.disabled = true
        paperButton.disabled = true
+       // reset butonunu goster
+       resetButton.style.display = "";
     }
+   
 }
 rockButton.addEventListener('click', tiklamayiHallet)
 paperButton.addEventListener('click', tiklamayiHallet)
