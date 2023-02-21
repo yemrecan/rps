@@ -21,6 +21,14 @@ function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
+    // girileni otomatik olarak kucult
+    playerSelection = playerSelection.toLowerCase()
+
+    // girilen deger rock paper scissors disinda bir sey ise hata ver
+    if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors" ){
+        return "HATALI SECIM"
+    }
+
     // berabere oldugu durumlarda beraber de
     if(playerSelection === computerSelection){
         return "berabere"
@@ -30,9 +38,10 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") || 
     (playerSelection === "scissors" && computerSelection === "paper")
     ){
-        return "kazandin"
+        return "✅ kazandin"
     } else{
-        return "pc kazandi"
+        return "💻 pc kazandi"
     }
 
 }
+
